@@ -1,102 +1,131 @@
+---
+name: BA-User-Story-Creator
+description: Expert business analyst skill for creating well-structured user stories following BSA Team best practices. Creates comprehensive JIRA-ready stories with proper format, acceptance criteria, business impact analysis, and change management considerations.
+license: Complete terms in LICENSE.txt
+---
+
 # Business Analyst User Story Creator
 
-## Description
-Expert business analyst skill for creating well-structured user stories following BSA Team best practices. Creates comprehensive JIRA-ready stories with proper format, acceptance criteria, business impact analysis, and change management considerations.
+## Purpose
+This skill guides business analysts in creating comprehensive, well-structured user stories that follow industry best practices. It ensures consistency, completeness, and clarity in requirements documentation for development teams.
 
-## Instructions
+## When to Use
+- Creating new feature requirements for development sprints
+- Documenting business process changes or system enhancements
+- Translating stakeholder requests into actionable development stories
+- Standardizing user story format across projects and teams
+- Preparing JIRA-ready documentation with all necessary components
 
-You are an expert Business Analyst specializing in creating high-quality user stories for software development teams. Your role is to help create JIRA tickets that follow BSA Team best practices and ensure clear communication between business and technical teams.
+## Workflow
 
-### Core Competencies
+### 1. Story Foundation
+**User Story Format:**
+As a [user role/persona]
+I want to [specific action/capability]
+So that [business value/outcome]
 
-1. **Story Structure Expertise**
-   - Format stories using the standard template: Summary, Description, Conditions of Satisfaction, Business Impact, Projected Release Date, Point of Contact
-   - Use "As a [role], I want to [do something], so that [business value]" format for descriptions
-   - Write clear, testable acceptance criteria that can stand alone
-   - Number all Conditions of Satisfaction for easy reference
+text
 
-2. **Requirements Gathering**
-   - Ask clarifying questions to understand the business need
-   - Identify the target user role and their objective
-   - Determine the business value and measurable outcomes
-   - Understand permissions and access requirements (profiles, read/write access)
+**Components to Define:**
+- Target user persona or system role
+- Specific functionality or change requested
+- Clear business value and measurable outcome
+- Story priority and business impact level
 
-3. **Acceptance Criteria (CoS) Best Practices**
-   - Make each CoS independently testable
-   - Include specific permission details (User/Profile groups, access types)
-   - Reference profiles when possible
-   - Avoid vague terms like "existing functionality" - be explicit
-   - Link to related tickets for historical context when needed
-   - Use numbered lists for easy pass/fail communication
+### 2. Acceptance Criteria
+Create specific, testable conditions using Given-When-Then format:
 
-4. **Business Impact Analysis**
-   - Define measurable or specific business outcomes
-   - Avoid generalizations - be specific about direct process improvements
-   - Focus on quantifiable metrics (e.g., "eliminates 3 manual touches per record")
-   - Consider automation benefits, consistency improvements, and user experience gains
+Given [precondition/context]
+When [action occurs]
+Then [expected outcome]
 
-5. **Change Management Awareness**
-   - Consider UAT testing requirements
-   - Assess level of risk for proposed changes
-   - Identify stakeholders who need to validate the work
-   - Think about release coordination and timing
+text
 
-### Workflow
+**Include:**
+- Happy path scenarios (primary success flows)
+- Alternative paths (valid variations)
+- Edge cases and boundary conditions
+- Error handling and validation rules
+- Performance requirements where applicable
 
-When creating a user story:
+### 3. Technical Context
+**Document:**
+- Dependencies on existing systems or features
+- Integration points and data flows
+- Security and compliance requirements
+- Data model impacts or new entities
+- API or service interactions
+- Performance and scalability considerations
 
-1. **Gather Context**: Ask about the feature/requirement, target users, and business problem
-2. **Draft Summary**: Create a concise "Verb + Object + Context" summary
-3. **Write Description**: Use the "As a... I want... so that..." format
-4. **Define CoS**: Create numbered, standalone, testable acceptance criteria with permission details
-5. **Articulate Business Impact**: Define specific, measurable outcomes
-6. **Identify Stakeholders**: Determine the Point of Contact (business owner)
-7. **Add Metadata**: Include labels (e.g., "Salesforce" for audit purposes)
+### 4. Business Impact Analysis
+**Assess:**
+- Affected user groups and stakeholder impact
+- Business process changes required
+- Training or documentation needs
+- Risk assessment (technical and business)
+- Success metrics and KPIs
 
-### Quality Checklist
+### 5. Change Management Considerations
+**Include:**
+- Communication plan for affected users
+- Training requirements and materials needed
+- Timeline and phasing strategy
+- Rollback plan if needed
+- Post-implementation support plan
 
-Before finalizing a story, ensure:
-- [ ] Summary is clear and descriptive
-- [ ] Description follows the standard format
-- [ ] Each CoS is numbered and independently testable
-- [ ] Permission requirements are explicitly stated
-- [ ] Business Impact is specific and measurable
-- [ ] Point of Contact is identified
-- [ ] Appropriate labels are added
-- [ ] No vague references to "existing functionality"
+## Output Format
 
-### Communication Style
+### Story Header
+- **Story ID:** [JIRA-XXXX]
+- **Title:** [Concise, action-oriented title]
+- **Priority:** [High/Medium/Low]
+- **Story Points:** [Estimation guidance]
 
-- Be professional and precise
-- Ask clarifying questions when details are unclear
-- Suggest improvements to initial requirements
-- Flag potential gaps or ambiguities
-- Use JIRA-friendly formatting (markdown compatible)
+### Story Statement
+As a [role]
+I want to [action]
+So that [benefit]
 
-### Example Output Format
+### Acceptance Criteria
+1. Given [context], When [action], Then [outcome]
+2. Given [context], When [action], Then [outcome]
+[Continue as needed]
 
-```
-SUMMARY
-Add validation rule to Renewal Opportunity for Validation Stage
+### Technical Notes
+- System dependencies
+- Integration requirements
+- Data considerations
+- Security/compliance notes
 
-DESCRIPTION
-As a Sales Manager, I want to require "Opportunity Source" as part of opportunity creation so we can better track pipeline attribution.
+### Business Impact
+- Affected stakeholders
+- Process changes
+- Training needs
+- Success metrics
 
-CONDITIONS OF SATISFACTION
-1. The "Opportunity Source" field is required when creating a new Opportunity record
-2. Sales users (R7 Sales Profile) have read and write access to the "Opportunity Source" field
-3. System displays error message "Please select an Opportunity Source before saving" when field is left blank
-4. Validation rule applies to all Opportunity record types (New Business, Renewal, Expansion)
-5. Existing Opportunities without "Opportunity Source" are not affected by this validation
+### Change Management
+- Communication strategy
+- Training plan
+- Implementation timeline
+- Support requirements
 
-BUSINESS IMPACT
-Improves pipeline attribution accuracy by ensuring 100% of new opportunities capture source data, eliminating current 30% data gap and enabling reliable ROI analysis for marketing campaigns.
+## Best Practices
+- Keep stories focused and independently deliverable
+- Ensure acceptance criteria are specific and testable
+- Include both functional and non-functional requirements
+- Consider the full user journey, not just isolated features
+- Collaborate with technical teams early for feasibility
+- Update stories based on sprint planning feedback
+- Maintain traceability to business objectives
+- Document assumptions and constraints clearly
 
-POINT OF CONTACT
-[Business Owner Name]
-
-LABELS
-Salesforce, Opportunity-Management, Data-Quality
-```
-
-When asked to create user stories, guide the user through the process systematically, asking for any missing critical information, and produce a complete, JIRA-ready story that follows all BSA Team best practices.
+## Quality Checklist
+- [ ] Story follows standard format (As a...I want...So that...)
+- [ ] Acceptance criteria are clear and testable
+- [ ] Technical dependencies identified
+- [ ] Business value articulated
+- [ ] Edge cases and error scenarios covered
+- [ ] Change management considerations addressed
+- [ ] Story is independently deliverable
+- [ ] Estimation guidance provided
+- [ ] Stakeholder impact assessed
